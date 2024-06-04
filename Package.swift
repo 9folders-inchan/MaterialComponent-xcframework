@@ -14,20 +14,21 @@ let package = Package(
             targets: ["MaterialComponent-xcframework"]),
     ],
     targets: [
+        
 		.binaryTarget( 
             name: "MDFTextAccessibility", 
-            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download/0.0.1/MDFTextAccessibility.xcframework.zip", 
-            checksum: "8f6bd63b9cc9a3428a6d685b2792c530c15718430c5d34b575eec813dcade120" 
+            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download//MDFTextAccessibility.xcframework.zip", 
+            checksum: "13c35423b1b4d345ba9be966ec2881d110f505a7726672cffa8ca05c39817326" 
         ), 
 		.binaryTarget( 
             name: "MaterialComponents", 
-            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download/0.0.1/MaterialComponents.xcframework.zip", 
-            checksum: "c4175beebd8cafd789bc7d842cf3cf09fe2bde3bec8f677a577969e50047cd94" 
+            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download//MaterialComponents.xcframework.zip", 
+            checksum: "fa55c134cfeca5f5ca0c2fcecd03fdb2ddba8940f10f4691816197278f729c15" 
         ), 
 		.binaryTarget( 
             name: "MDFInternationalization", 
-            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download/0.0.1/MDFInternationalization.xcframework.zip", 
-            checksum: "4a7c4df0f6811f1f784aa9ef2cca4df141f83fb9124309fb47ac7db3582a226c" 
+            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download//MDFInternationalization.xcframework.zip", 
+            checksum: "f795e825320dec9d96ed71bd4668446e4b5365760a319bc38050b7c7146fecfc" 
         ), 
         .target(
             name: "MaterialComponent-xcframework",
