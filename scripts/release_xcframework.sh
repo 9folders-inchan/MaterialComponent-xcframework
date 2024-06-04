@@ -3,7 +3,7 @@
 
 cwd="$(dirname "${BASH_SOURCE[0]}")"
 WORK_DIR="$(mktemp -d)"
-trap 'rm -rf "$WORK_DIR"' EXIT
+#trap 'rm -rf "$WORK_DIR"' EXIT
 
 RELEASE_VERSION=$1
 RELEASE_NOTE=$2
@@ -14,9 +14,8 @@ fi
 
 set -e
 
-XCFRAMEWORK_NAME="MaterialComponents"
-XCFRAMEWORK_PATH="${WORK_DIR}/${XCFRAMEWORK_NAME}.xcframework"
-XCFRAMEWORK_ZIP="${XCFRAMEWORK_PATH}.zip"
+XCFRAMEWORK_NAME="material-components-ios-spm"
+SCHEME="MaterialComponents"
 
 ARCHIVE_PATH="${WORK_DIR}/Archived/${XCFRAMEWORK_NAME}.xcarchive"
 ARCHIVE_PATH_Simulator="${WORK_DIR}/Archived/${XCFRAMEWORK_NAME}-Simulator.xcarchive"
@@ -34,14 +33,14 @@ echo "WORK_DIR: ${WORK_DIR}"
 # 3. archive
 xcodebuild archive \
 	-project "Pods/Pods.xcodeproj" \
-	-scheme ${XCFRAMEWORK_NAME} \
+	-scheme ${SCHEME} \
 	-archivePath ${ARCHIVE_PATH} \
 	-sdk iphoneos \
 	SKIP_INSTALL=NO
 
 xcodebuild archive \
 	-project "Pods/Pods.xcodeproj" \
-	-scheme ${XCFRAMEWORK_NAME} \
+	-scheme ${SCHEME} \
 	-archivePath ${ARCHIVE_PATH_Simulator} \
 	-sdk iphonesimulator \
 	SKIP_INSTALL=NO
@@ -49,27 +48,26 @@ xcodebuild archive \
 ARTIFACT_PATHS=()
 BINARY_TARGETS=()
 for framework in $(find ${FRAMEWORKS_PATH} -maxdepth 1 -type d -exec basename {} \; | grep '.framework'); do
-	framework_name=${framework%.framework}
-  framework_path="${WORK_DIR}/${framework_name}.xcframework"
-  framework_zip="${framework_path}.zip"
+	xcframework_name=${framework%.framework}
+    xcframework_path="${WORK_DIR}/${xcframework_name}.xcframework"
+    xcframework_zip="${xcframework_path}.zip"
 	xcodebuild -create-xcframework \
-		-framework "${ARCHIVE_PATH}/Products/Library/Frameworks/${framework_name}.framework" \
-		-framework "${ARCHIVE_PATH_Simulator}/Products/Library/Frameworks/${framework_name}.framework" \
-		-output "${framework_path}"
+		-framework "${ARCHIVE_PATH}/Products/Library/Frameworks/${xcframework_name}.framework" \
+		-framework "${ARCHIVE_PATH_Simulator}/Products/Library/Frameworks/${xcframework_name}.framework" \
+		-output "${xcframework_path}"
 
 	# 5. compress
-	zip -r -X "${framework_zip}" "${framework_path}"
-
-	ARTIFACT_PATHS+=("$framework_zip")
-	checksum="`swift package compute-checksum "$framework_zip"`"
-	url="${REPO_URL}/releases/download/${RELEASE_VERSION}/${framework_name}.xcframework.zip"
+	zip -r -X "${xcframework_zip}" "${xcframework_path}"
+	ARTIFACT_PATHS+=("$xcframework_zip")
+	checksum="`swift package compute-checksum "$xcframework_zip"`"
+	url="${REPO_URL}/releases/download/${RELEASE_VERSION}/${xcframework_name}.xcframework.zip"
   
 
 	BINARY_TARGETS+=$(cat <<EOF
 
 		.binaryTarget( 
-            name: "${framework_name}", 
-            url: "${url}", 
+            name: "${xcframework_name}",
+            url: "${url}",
             checksum: "${checksum}" 
         ), 
 EOF
@@ -80,7 +78,7 @@ done
 if [ ! -f Package.swift ]; then
   touch Package.swift
 fi
-./scripts/format_Package.swift.sh "$BINARY_TARGETS" > Package.swift
+./scripts/format_Package.swift.sh "$XCFRAMEWORK_NAME" "$BINARY_TARGETS" > Package.swift
 
 # 7. Commit
 git add Package.swift

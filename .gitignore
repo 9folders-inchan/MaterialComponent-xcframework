@@ -67,3 +67,4 @@ fastlane/test_output
 iOSInjectionProject/
 Podfile.lock
 Package.swift.bak
+.zip

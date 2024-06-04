@@ -1,6 +1,7 @@
 
-BINARY_TARGETS=$1
-NAME="MaterialComponent-xcframework"
+MODULE_NAME=$1
+BINARY_TARGETS=$2
+
 
 FORMAT=$(cat <<- EOF
 // swift-tools-version:5.3
@@ -9,19 +10,19 @@ FORMAT=$(cat <<- EOF
 import PackageDescription
 
 let package = Package(
-    name: "${NAME}",
+    name: "${MODULE_NAME}",
     platforms: [
         .iOS(.v9), .macOS(.v10_10)
     ],
     products: [ 
         .library(
-            name: "${NAME}",
-            targets: ["${NAME}"]),
+            name: "${MODULE_NAME}",
+            targets: ["${MODULE_NAME}"]),
     ],
     targets: [
         ${BINARY_TARGETS}
         .target(
-            name: "${NAME}",
+            name: "${MODULE_NAME}",
             dependencies: ["MaterialComponents", "MDFInternationalization", "MDFTextAccessibility"]
         )
     ]
