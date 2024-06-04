@@ -14,7 +14,6 @@ let package = Package(
             targets: ["MaterialComponent-xcframework"]),
     ],
     targets: [
-        
 		.binaryTarget( 
             name: "MDFTextAccessibility", 
             url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download/0.0.1/MDFTextAccessibility.xcframework.zip", 
