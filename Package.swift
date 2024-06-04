@@ -17,18 +17,18 @@ let package = Package(
         
 		.binaryTarget( 
             name: "MDFTextAccessibility",
-            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.3/MDFTextAccessibility.xcframework.zip",
-            checksum: "84b01cb62882d78ba7143c7110839fb1be5fea17852055f2f59bb44a814e4c4a" 
+            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.4/MDFTextAccessibility.xcframework.zip",
+            checksum: "c44c365fd9a73180b60565b3e883f1195bbef3d0e93d439a702d64dc2ffedf10" 
         ), 
 		.binaryTarget( 
             name: "MaterialComponents",
-            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.3/MaterialComponents.xcframework.zip",
-            checksum: "13dd82e8502ecd640ac0f3e6bb12d3d048515a81624deabacb4c6413af43ac15" 
+            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.4/MaterialComponents.xcframework.zip",
+            checksum: "acb237e12e35bcf08f4dabadd7d612d9e13c63d0ea12f1930c09b938fd76abe3" 
         ), 
 		.binaryTarget( 
             name: "MDFInternationalization",
-            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.3/MDFInternationalization.xcframework.zip",
-            checksum: "0088a396d36039ac8a456cb649129f71ee1f92599d9a16f15441a662e5b4707b" 
+            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.4/MDFInternationalization.xcframework.zip",
+            checksum: "8cb9ede564a1fc7df1073d5decea27f34c4ab78f76817516b84d7c4f437b6874" 
         ), 
         .target(
             name: "material-components-ios-spm",
