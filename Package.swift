@@ -4,34 +4,34 @@
 import PackageDescription
 
 let package = Package(
-    name: "MaterialComponent-xcframework",
+    name: "material-components-ios-spm",
     platforms: [
         .iOS(.v9), .macOS(.v10_10)
     ],
     products: [ 
         .library(
-            name: "MaterialComponent-xcframework",
-            targets: ["MaterialComponent-xcframework"]),
+            name: "material-components-ios-spm",
+            targets: ["material-components-ios-spm"]),
     ],
     targets: [
         
 		.binaryTarget( 
-            name: "MDFTextAccessibility", 
-            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download/0.0.2/MDFTextAccessibility.xcframework.zip", 
-            checksum: "0bc23db8d71859a5f1e5626f3a8eb3b0d62ab08f44c185d3b3639770c5158757" 
+            name: "MDFTextAccessibility",
+            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.3/MDFTextAccessibility.xcframework.zip",
+            checksum: "84b01cb62882d78ba7143c7110839fb1be5fea17852055f2f59bb44a814e4c4a" 
         ), 
 		.binaryTarget( 
-            name: "MaterialComponents", 
-            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download/0.0.2/MaterialComponents.xcframework.zip", 
-            checksum: "ebab1585cdf530c65a8a5f2081c2bca0665bd3e78a6442c1d40d64d8d6623bec" 
+            name: "MaterialComponents",
+            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.3/MaterialComponents.xcframework.zip",
+            checksum: "13dd82e8502ecd640ac0f3e6bb12d3d048515a81624deabacb4c6413af43ac15" 
         ), 
 		.binaryTarget( 
-            name: "MDFInternationalization", 
-            url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download/0.0.2/MDFInternationalization.xcframework.zip", 
-            checksum: "10cf42e43ed500cc4d11672f0de43b589f5107b2ff955c1ee2ff3a13492d21a5" 
+            name: "MDFInternationalization",
+            url: "https://github.com/9folders-inchan/material-components-ios-spm/releases/download/0.0.3/MDFInternationalization.xcframework.zip",
+            checksum: "0088a396d36039ac8a456cb649129f71ee1f92599d9a16f15441a662e5b4707b" 
         ), 
         .target(
-            name: "MaterialComponent-xcframework",
+            name: "material-components-ios-spm",
             dependencies: ["MaterialComponents", "MDFInternationalization", "MDFTextAccessibility"]
         )
     ]
