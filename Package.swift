@@ -18,17 +18,17 @@ let package = Package(
 		.binaryTarget( 
             name: "MDFTextAccessibility", 
             url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download//MDFTextAccessibility.xcframework.zip", 
-            checksum: "13c35423b1b4d345ba9be966ec2881d110f505a7726672cffa8ca05c39817326" 
+            checksum: "a6129781b58589eb38098775541636c5e5198470992e38e12443d054de96eb4a" 
         ), 
 		.binaryTarget( 
             name: "MaterialComponents", 
             url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download//MaterialComponents.xcframework.zip", 
-            checksum: "fa55c134cfeca5f5ca0c2fcecd03fdb2ddba8940f10f4691816197278f729c15" 
+            checksum: "d8ce306cb32809bb4c816e2d3d17de34258217602408bf59f48d63a0773858ac" 
         ), 
 		.binaryTarget( 
             name: "MDFInternationalization", 
             url: "https://github.com/9folders-inchan/MaterialComponent-xcframework/releases/download//MDFInternationalization.xcframework.zip", 
-            checksum: "f795e825320dec9d96ed71bd4668446e4b5365760a319bc38050b7c7146fecfc" 
+            checksum: "fa54b62aed864f2b8f9838b5cce5b3ca30e995f5b925c93f70b411c5e37d6f29" 
         ), 
         .target(
             name: "MaterialComponent-xcframework",
